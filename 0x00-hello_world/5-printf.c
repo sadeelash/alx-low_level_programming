@@ -3,7 +3,7 @@
 /**
  * main - will print out grammar line
  *
- * Return: 0 if  Successful
+ * Return: 0 if  Success
 **/
 int main(void)
 {
