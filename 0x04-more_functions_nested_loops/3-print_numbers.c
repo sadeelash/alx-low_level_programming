@@ -2,10 +2,10 @@
 #include "main.h"
 
 /**
- * *print_numbers - function that print all numbers from
+ * *print numbers - function that prints from
  * *0 to 9
  * *
- * *Return: returns nothing
+ * *Return: 0
  * */
 
 void print_numbers(void)
@@ -18,4 +18,3 @@ void print_numbers(void)
 									}
 				putchar(10);
 }
-^C
