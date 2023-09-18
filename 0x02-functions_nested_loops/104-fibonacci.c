@@ -4,23 +4,26 @@
  * main - Entry point
  *
  * Description: Prints the first 98 Fibonacci numbers separated by a comma
+ * and space.
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	unsigned long a = 1, b = 2, c;
-	int i;
+	unsigned long first = 1, second = 2, next, sum;
 
-	printf("%lu, %lu", a, b);
+	printf("%lu, %lu", first, second);
 
-	for (i = 3; i <= 98; i++)
+	for (int i = 3; i <= 98; i++)
 	{
-		c = a + b;
-		printf(", %lu", c);
-		a = b;
-		b = c;
+		next = first + second;
+		sum = next;
+		printf(", %lu", next);
+
+		first = second;
+		second = sum;
 	}
+
 	printf("\n");
 
 	return (0);
