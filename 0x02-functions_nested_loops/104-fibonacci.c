@@ -10,22 +10,21 @@
  */
 int main(void)
 {
-	unsigned long first = 1, second = 2, next, sum;
+    unsigned long a = 1, b = 2, c;
+    int i;
 
-	printf("%lu, %lu", first, second);
+    printf("%lu, %lu", a, b);
 
-	for (int i = 3; i <= 98; i++)
-	{
-		next = first + second;
-		sum = next;
-		printf(", %lu", next);
+    for (i = 3; i <= 98; i++)
+    {
+        c = a + b;
+        printf(", %lu", c);
+        a = b;
+        b = c;
+    }
 
-		first = second;
-		second = sum;
-	}
+    printf("\n");
 
-	printf("\n");
-
-	return (0);
+    return (0);
 }
 
