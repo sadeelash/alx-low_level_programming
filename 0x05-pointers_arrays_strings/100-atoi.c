@@ -1,33 +1,33 @@
 #include "main.h"
 
 /**
- * customAtoi - Convert a string to an integer.
- * @str: The string to be converted.
+ * _atoi - Convert string to integer.
+ * @s: string to be converted.
  *
- * Return: The integer value of the converted string.
+ * Return: value of the converted string.
  */
-int customAtoi(char *str)
+int _atoi(char *s)
 {
-    int isNegative = 1;
-    unsigned int result = 0;
+	int sign = 1;
+	unsigned int num = 0;
 
-    while (*str)
-    {
-        if (*str == '-')
-        {
-            isNegative *= -1;
-        }
-        else if (*str >= '0' && *str <= '9')
-        {
-            result = (result * 10) + (*str - '0');
-        }
-        else if (result > 0)
-        {
-            break;
-        }
-        str++;
-    }
+	while (*s)
+	{
+		if (*s == '-')
+		{
+			sign *= -1;
+		}
+		else if (*s >= '0' && *s <= '9')
+		{
+			num = (num * 10) + (*s - '0');
+		}
+		else if (num > 0)
+		{
+			break;
+		}
+		s++;
+	}
 
-    return (result * isNegative);
+	return (num * sign);
 }
 
