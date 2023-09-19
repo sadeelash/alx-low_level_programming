@@ -1,14 +1,17 @@
 #include "main.h"
-#include <string.h>
 
 /**
- * reverse_string - Reverses a string.
+ * rev_string - Reverses a string in place.
  * @s: The string to be reversed.
  */
-void reverse_string(char *s)
+void rev_string(char *s)
 {
-	int i, length = strlen(s), j = 0;
+	int i, length = 0, j = 0;
 	char temp;
+
+	/* Calculate the length of the string */
+	while (s[length] != '\0')
+		length++;
 
 	for (i = length - 1; i >= length / 2; i--)
 	{
