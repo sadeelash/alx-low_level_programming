@@ -1,49 +1,33 @@
 #include "main.h"
-#include <limits.h>  /* Include the limits.h header for INT_MAX and INT_MIN */
 
 /**
- * _atoi - converts a string to an integer
- * @s: The string to be converted
+ * customAtoi - Convert a string to an integer.
+ * @str: The string to be converted.
  *
- * Return: The integer converted from the string
+ * Return: The integer value of the converted string.
  */
-int _atoi(char *s)
+int customAtoi(char *str)
 {
-	int sign = 1;  /* Initialize sign as positive */
-	int result = 0;
-	int i = 0;
+    int isNegative = 1;
+    unsigned int result = 0;
 
-	/* Skip leading whitespace */
-	while (s[i] == ' ')
-		i++;
+    while (*str)
+    {
+        if (*str == '-')
+        {
+            isNegative *= -1;
+        }
+        else if (*str >= '0' && *str <= '9')
+        {
+            result = (result * 10) + (*str - '0');
+        }
+        else if (result > 0)
+        {
+            break;
+        }
+        str++;
+    }
 
-	/* Handle leading '+' or '-' signs */
-	if (s[i] == '-')
-	{
-		sign = -1; /* Set sign as negative */
-		i++;
-	}
-	else if (s[i] == '+')
-	{
-		i++;
-	}
-
-	/* Process digits to form the integer */
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		/* Check for integer overflow */
-		if (result > (INT_MAX - (s[i] - '0')) / 10)
-		{
-			if (sign == 1)
-				return (INT_MAX);
-			else
-				return (INT_MIN);
-		}
-
-		result = result * 10 + (s[i] - '0');
-		i++;
-	}
-
-	return (result * sign);
+    return (result * isNegative);
 }
 
