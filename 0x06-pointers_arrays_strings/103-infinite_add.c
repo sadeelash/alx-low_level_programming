@@ -1,52 +1,59 @@
-#include <stdio.h>
+#include "main.h"
 
-char *infinite_add(char *n1, char *n2, char *r, int size_r);
-
-int main(void)
+/**
+ * infinite_add - Adds two numbers
+ * @n1: The first number as a string
+ * @n2: The second number as a string
+ * @r: The buffer to store the result
+ * @size_r: The buffer size
+ *
+ * Return: A pointer to the result string, or 0 if the result cannot fit
+ */
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    char r[100];
-    char *res;
+    int i, j, k, l, m, n;
 
-    res = infinite_add("1234567890", "9876543210", r, 100);
-    if (res == 0)
-    {
-        printf("Error\n");
-    }
-    else
-    {
-        printf("%s\n", res);
-    }
+    /* Calculate the lengths of n1 and n2 */
+    for (i = 0; n1[i]; i++)
+        ;
+    for (j = 0; n2[j]; j++)
+        ;
 
-    res = infinite_add("999999999", "1", r, 100);
-    if (res == 0)
-    {
-        printf("Error\n");
-    }
-    else
-    {
-        printf("%s\n", res);
-    }
+    /* Check if the result can fit in the buffer */
+    if (i > size_r || j > size_r)
+        return (0);
 
-    res = infinite_add("123", "999999999", r, 100);
-    if (res == 0)
+    m = 0;
+    /* Perform addition */
+    for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
     {
-        printf("Error\n");
-    }
-    else
-    {
-        printf("%s\n", res);
+        n = m;
+        if (i >= 0)
+            n += n1[i] - '0';
+        if (j >= 0)
+            n += n2[j] - '0';
+        if (i < 0 && j < 0 && n == 0)
+        {
+            break;
+        }
+        m = n / 10;
+        r[k] = n % 10 + '0';
     }
 
-    res = infinite_add("000000000", "000", r, 100);
-    if (res == 0)
+    r[k] = '\0';
+
+    /* Check if there are any remaining digits */
+    if (i >= 0 || j >= 0 || m)
+        return (0);
+
+    /* Reverse the result string */
+    for (k -= 1, l = 0; l < k; k--, l++)
     {
-        printf("Error\n");
-    }
-    else
-    {
-        printf("%s\n", res);
+        m = r[k];
+        r[k] = r[l];
+        r[l] = m;
     }
 
-    return (0);
+    return (r);
 }
 
