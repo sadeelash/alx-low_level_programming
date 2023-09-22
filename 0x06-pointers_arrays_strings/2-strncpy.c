@@ -8,23 +8,20 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-    char *ptrDest = dest;
+    int i = 0;
 
-    while (*src && n > 0)
+    while (i < n && src[i] != '\0')
     {
-        *ptrDest = *src;
-        ptrDest++;
-        src++;
-        n--;
+        dest[i] = src[i];
+        i++;
     }
 
-    while (n > 0)
+    while (i < n)
     {
-        *ptrDest = '\0';
-        ptrDest++;
-        n--;
+        dest[i] = '\0';
+        i++;
     }
 
     return dest;
 }
-
+`
