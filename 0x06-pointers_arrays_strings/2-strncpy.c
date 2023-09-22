@@ -8,24 +8,23 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	char *ptrDest = dest;
-	int dest_len = 0;
+    char *ptrDest = dest;
 
-	while (*ptrDest)
-	{
-		ptrDest++;
-		dest_len++;
-	}
+    while (*src && n > 0)
+    {
+        *ptrDest = *src;
+        ptrDest++;
+        src++;
+        n--;
+    }
 
-	while (*src && n > 0)
-	{
-		*ptrDest = *src;
-		ptrDest++;
-		src++;
-		n--;
-	}
+    while (n > 0)
+    {
+        *ptrDest = '\0';
+        ptrDest++;
+        n--;
+    }
 
-	*ptrDest = '\0'; /* Null-terminate the resulting string */
-	return (dest);
+    return dest;
 }
 
