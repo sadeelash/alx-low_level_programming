@@ -13,8 +13,8 @@ void _puts_recursion(char *s)
 	}
 	else
 	{
-		putchar(*s); /* Print the current character */
-		_puts_recursion(s + 1); /* Recursively call the function with the next character */
+		putchar(*s); 
+		_puts_recursion(s + 1);
 	}
 }
 
