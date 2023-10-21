@@ -1,1 +1,1 @@
-learn to debug
+ tasks on singly linked isy
