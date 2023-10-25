@@ -2,6 +2,7 @@
 #define VARIADIC_FUNCTIONS_H
 
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * struct format - Structure for variadic print_all function
